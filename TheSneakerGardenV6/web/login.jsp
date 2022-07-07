@@ -65,7 +65,7 @@ session.setAttribute("user", null);
                 const title = "Warnning";
                 const message = ' Wrong username or password !!!';
                 const position = "bottom-right";
-                const duration = 3000;
+                const duration = 1000;
                 const type = 'warning';
                 let callback = null;
 

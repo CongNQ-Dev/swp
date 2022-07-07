@@ -22,7 +22,7 @@
                     <h1>Winter Collection<br>Light Nylon</h1>
                     <p>Lorem ipsum dolor sit amet consectetur <br> adipisicing elit. Ipsum, optio!</p>
                     <!-- Home Button -->
-                    <a href="#" class="btn btn-outline-success">Buy Now</a>
+                    <a href="#" class="btn btn-outline-success person">Buy Now</a>
                 </div>
                 <!-- Home IMage -->
                 <div class="home-img">

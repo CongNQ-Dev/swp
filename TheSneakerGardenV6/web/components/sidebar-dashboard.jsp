@@ -20,7 +20,7 @@
         <input type="checkbox" id="nav-toggle">
         <div class="sidebar">
             <div class="sidebar-brand">
-                <img  src="././images/LogoTheSneakerGarden.png" style="width: 180px">
+                <a href="./home"> <img  src="././images/LogoTheSneakerGarden.png" style="width: 180px"></a>
             </div>
             <div class="sidebar-menu">
                 <ul>

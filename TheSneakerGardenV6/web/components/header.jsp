@@ -1,6 +1,6 @@
 <!-- Navbar -->
 
-<header class="main-container container">
+<header class="main-container container position-sticky top-0">
     <div class="row">
         <div class="col-lg-3 col-2 logo">
             <a class="navbar-brand pb-4" href="./home">
@@ -98,7 +98,7 @@
                                     </ul>
 
                                 </li>
-                                <button class="btn btn-outline-success custom-btn" type="button"
+                                <button class="btn btn-outline-success custom-btn person" type="button"
                                         style="display: inline-block; margin-left: .5em;" onclick="location.href = './cart'"><i
                                         class="bi bi-cart-plus-fill"></i></button>
 
