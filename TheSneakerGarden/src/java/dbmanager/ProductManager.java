@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import model.Inventory;
 import model.Size;
 
 /**
@@ -50,7 +51,7 @@ public class ProductManager {
     }
 
     //in all sp 
-    public Product getProduct(int id) {
+    public Product getProductByID(int id) {
         Product product = new Product();
         String query = "SELECT * FROM [dbo].[Products] WHERE [ProductID] = " + id;
         try {
@@ -150,22 +151,22 @@ public class ProductManager {
         return status;
     }
 
-    public ArrayList<Integer> getAllProductSize(int size) {
-        ArrayList<Integer> list = new ArrayList<>();
-        String query = "SELECT [SizeID]\n"
-                + "      ,[SizeNumber]\n"
+    public ArrayList<Inventory> getProductQuantityByProID(int id) {
+        ArrayList<Inventory> list = new ArrayList<Inventory>();
+        String query = "SELECT [SizeNumber]\n"
                 + "      ,[quantity]\n"
-                + "      ,[productid]\n"
-                + "  FROM [dbo].[Sizes]"
-                + "WHERE [Sizes].[productid] = " + size;
+                + "      ,[productId]\n"
+                + "  FROM [dbo].[Inventory]"
+                + "WHERE [productid] = " + id;
         try {
             conn = db.getConnectDB();//mo ket noi voi sql
             ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()) {
-                if (rs.getInt("quantity") > 0) {
-                    list.add(rs.getInt("SizeNumber"));
-                }
+                int sizeNum = rs.getInt("SizeNumber");
+                int quantity = rs.getInt("quantity");
+                list.add(new Inventory(id, sizeNum, quantity));
+
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -173,37 +174,44 @@ public class ProductManager {
         return list;
     }
 
-    public int getQuantityProduct(int size, int productId) {
+//    public Size getProductSize(int id) {
+//        Size size = new Size();
+//        String query = "SELECT [SizeID], [SizeNumber], [Width], [Length] FROM [dbo].[Sizes] WHERE [SizeID]=" + id;
+//        try {
+//            conn = db.getConnectDB();//mo ket noi voi sql
+//            ps = conn.prepareStatement(query);
+//            rs = ps.executeQuery();
+//            while (rs.next()) {
+//                int sizeNum = rs.getInt("SizeNumber");
+//                String width = rs.getString("Width");
+//                String length = rs.getString("Length");
+//                size = new Size(sizeNum, sizeNum, length, width);
+//            }
+//        } catch (SQLException e) {
+//            System.out.println(e.getMessage());
+//        }
+//        return size;
+//    }
+    
+    public int getProductQuantityByProSize(int proID, int sizeNum){
         int quantity = 0;
-        String query = "SELECT [SizeID]\n"
-                + "      ,[SizeNumber]\n"
-                + "      ,[quantity]\n"
-                + "      ,[productid]\n"
-                + "  FROM [dbo].[Sizes]"
-                + "WHERE [Sizes].[productid] = " + productId + " and [Sizes].[SizeNumber] = " + size;
-        try {
+        String query = "SELECT [Quantity] FROM [dbo].[Inventory] WHERE [ProductID] = " + proID + "AND [SizeNumber] = " + sizeNum;
+         try {
             conn = db.getConnectDB();//mo ket noi voi sql
             ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()) {
-                quantity = rs.getInt("quantity");
+                quantity = rs.getInt("Quantity");
             }
-            System.out.println(quantity + ""
-                    + "--------------");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
         return quantity;
+        
     }
-
     public boolean checkQuantityProduct(int size, int productId) {
         boolean quantity = false;
-        String query = "SELECT [SizeID]\n"
-                + "      ,[SizeNumber]\n"
-                + "      ,[quantity]\n"
-                + "      ,[productid]\n"
-                + "  FROM [dbo].[Sizes]"
-                + "WHERE [Sizes].[productid] = " + productId + " and [Sizes].[SizeNumber] = " + size;
+        String query = "SELECT [Quantity] FROM [dbo].[Inventory] WHERE [ProductID] = " + productId + " and [SizeNumber] " + size;
         try {
             conn = db.getConnectDB();//mo ket noi voi sql
             ps = conn.prepareStatement(query);
@@ -211,8 +219,7 @@ public class ProductManager {
             while (rs.next()) {
                 quantity = true;
             }
-            System.out.println(quantity + ""
-                    + "--------------");
+            
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -220,54 +227,47 @@ public class ProductManager {
     }
 
     public boolean updateSize(int size, int productId, int quantity) {
-        boolean status = false;
-        try {
-            conn = db.getConnectDB();//mo ket noi voi sql
-            PreparedStatement ps = conn.prepareStatement("UPDATE [dbo].[Sizes] SET [quantity] = " + quantity + " WHERE [Sizes].[productid] = " + productId + " and [Sizes].[SizeNumber] = " + size);
-            ps.executeUpdate();
-            status = true;
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        return status;
-    }
-
-    //in all sp 
-    public ArrayList<Size> getProductSize(int id) {
-        ArrayList<Size> list = new ArrayList<>();
-        String query = "SELECT * FROM [dbo].[Sizes] WHERE [ProductID] = " + id;
+        boolean check = false;
+        String query = "UPDATE [dbo].[Inventory] SET [quantity] = " + quantity + " WHERE [productid] = " + productId + " and [SizeNumber] = " + size;
         try {
             conn = db.getConnectDB();//mo ket noi voi sql
             ps = conn.prepareStatement(query);
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                list.add(new Size(rs.getInt("SizeNumber"), rs.getInt("quantity"), rs.getInt("productid")));
-            }
-        } catch (SQLException e) {
-            e.getMessage();
-        }
-        return list;
-    }
-
-    public boolean insertSize(int size, int productId, int quantity) {
-        boolean status = false;
-
-        try {
-            conn = db.getConnectDB();//mo ket noi voi sql
-
-            PreparedStatement ps = conn.prepareStatement(""
-                    + "INSERT [dbo].[Sizes] "
-                    + "([SizeNumber], [quantity], [productid]) "
-                    + "VALUES "
-                    + "(" + size + "," + quantity + ", " + productId + ")");
-
-            ps.executeUpdate();
-
-            status = true;
-
+            check = ps.executeUpdate() > 0 ? true : false;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        return status;
+        return check;
+    }
+
+    //in all sp 
+     //    public ArrayList<Size> getProductSize(int id) {
+            //        ArrayList<Size> list = new ArrayList<>();
+            //        String query = "SELECT * FROM [dbo].[Sizes] WHERE [ProductID] = " + id;
+            //        try {
+            //            conn = db.getConnectDB();//mo ket noi voi sql
+            //            ps = conn.prepareStatement(query);
+            //            rs = ps.executeQuery();
+            //            while (rs.next()) {
+            //                list.add(new Size(rs.getInt("SizeNumber"), rs.getInt("quantity"), rs.getInt("productid")));
+            //            }
+            //        } catch (SQLException e) {
+            //            e.getMessage();
+            //        }
+            //        return list;
+            //    }
+
+
+
+    public boolean insertSize(int sizeNum , int proID, int quantity) {
+        boolean check = false;
+        String query = "INSERT [dbo].[Inventory] ([ProductID], [SizeNumber], [Quantity]) VALUES(" + proID + "," + sizeNum + ", " + quantity + ")";
+        try {
+            conn = db.getConnectDB();//mo ket noi voi sql
+            PreparedStatement ps = conn.prepareStatement(query);
+            check = ps.executeUpdate() > 0 ? true : false;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return check;
     }
 }

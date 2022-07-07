@@ -10,7 +10,7 @@
     <head>
         <%--<%@include file="./../../components/head.jsp" %>--%>   
         <link rel="shortcut icon" href="./../../images/LogoTheSneakerGarden.png" type="image/x-icon">
-        <title>Add user</title>
+        <title>Add Size</title>
         <style type="text/css">
             *{
                 margin: 0;
