@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-lg-3 col-2 logo">
             <a class="navbar-brand pb-4" href="./home">
-                <img src="https://sneakerdaily.vn/wp-content/uploads/2022/07/Giay-Nike-Air-Force-1-Low-07-LV8-White-Malachite-DM0109-100-3-300x300.jpg" alt=""width="100px" height="150"
+                <img src="./images/LogoTheSneakerGarden.png" alt=""width="100px" height="150"
                      class="d-inline-block align-text-top nav-icon">
             </a>
         </div>
