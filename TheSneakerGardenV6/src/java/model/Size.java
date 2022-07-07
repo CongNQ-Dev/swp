@@ -6,7 +6,7 @@ package model;
 
 /**
  *
- * @author DINHTT
+ * @author Admin
  */
 public class Size {
 

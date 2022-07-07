@@ -14,10 +14,16 @@
                     <div class="col-md-8 text-white">
                         <h1>About Us</h1>
                         <p>
-                            Our mission is what drives us to do everything possible to expand human potential. We do that by 
-                            creating groundbreaking sport innovations, by making our products more sustainably, by building 
-                            a creative and diverse global team and by making a positive impact in communities where we live and work.
+                            The Sneaker Garden is the place for those of you who have an intense love and vitality for sneakers. The Sneaker Garden places a lot of emphasis on customer service and ease of shopping experience.
                         </p>
+                        <h4>Here we:</h4>
+                        <ul style="list-style-type:disc">
+                            <li> Receiving orders, selling available all lines of shoes, sandals, shoe accessories from Nike, Adidas, Jordan... </li>
+                            <li> Commitment to only sell genuine products, say no to fake. </li>
+                            <li> Goods are shipped directly from foreign stores with full invoices and documents. </li>
+                            <li> Offers free shipping, free exchanges, and free returns within 3 days of shoe purchase. </li>
+                        </ul>
+
                     </div>
                     <div class="col-md-4">
                         <img src="./images/LogoTheSneakerGarden.png" alt="About Hero">

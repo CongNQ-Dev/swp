@@ -37,7 +37,7 @@
                                  for (Map.Entry<Integer,CartItem> en : cart.entrySet()) {
                                          Object key = en.getKey();
                                          CartItem val = en.getValue();
-                                         Product product =  pro.getProduct(en.getValue().getID());
+                                         Product product =  pro.getProductByID(en.getValue().getID());
                                       
                             %>
                             <div class="card cartItem rounded-3 mb-4">
@@ -52,7 +52,8 @@
                                         </div>
                                         
                                         <div class="col-md col-xl d-flex">
-                                            <button class="btn btn-link px-2" onclick="location.href='/TheSneakerGarden/addToCart?action=minus&id=<%=en.getKey()%>'" style="margin-right: 1em">
+                                            <button class="btn btn-link px-2" 
+                                                    onclick="location.href='/TheSneakerGarden/addToCart?action=minus&id=<%=en.getKey()%>'" style="margin-right: 1em">
                                                 <i class="bi bi-dash"></i>
                                             </button>
 

@@ -17,7 +17,7 @@ import model.User;
 
 /**
  *
- * @author admin
+ * @author Admin
  */
 @WebServlet(name = "UserManagerControl", urlPatterns = {"/user-management"})
 public class UserManagerControl extends HttpServlet {

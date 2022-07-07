@@ -20,7 +20,7 @@ import model.User;
 
 /**
  *
- * @author DINHTT
+ * @author Admin
  */
 @WebServlet(name = "checkout", urlPatterns = {"/checkout"})
 public class checkout extends HttpServlet {

@@ -18,7 +18,7 @@ import model.Size;
 
 /**
  *
- * @author DINHTT
+ * @author Admin
  */
 @WebServlet(name = "ProductSize", urlPatterns = {"/ProductSize"})
 public class ProductSize extends HttpServlet {

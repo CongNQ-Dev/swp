@@ -58,7 +58,7 @@
                                 <ul class="list-inline">
                                     <li class="list-inline-item">
                                         <%
-                                            if (product.getcId() == 1) {
+                                            if (product.getbrandID() == 1) {
                                         %>
 
                                         <h6 class="branch-name">Brand:&nbsp Nike</h6>
@@ -112,7 +112,9 @@
                                                     <input type="hidden" name="product-quanity" id="product-quanity" value="1">
                                                 </li>
                                                 <li class="list-inline-item">
-                                                    <span class="btn btn-black" id="btn-minus">-</span><span class="badge bg-secondary quantity-select" id="var-value">1</span><span class="btn btn-black" id="btn-plus">+</span>
+                                                    <span class="btn btn-black" id="btn-minus">-</span>
+                                                    <span class="badge bg-secondary quantity-select" id="var-value">1</span>
+                                                    <span class="btn btn-black" id="btn-plus">+</span>
                                                 </li>
                                                 <li class="list-inline-item">
                                                     <div class="col d-grid">

@@ -193,7 +193,7 @@ public class ProductManager {
 //        return size;
 //    }
     
-    public int getProductQuantityByProSize(int proID, int sizeNum){
+    public int getProductQuantityByProSize(int sizeNum, int proID){
         int quantity = 0;
         String query = "SELECT [Quantity] FROM [dbo].[Inventory] WHERE [ProductID] = " + proID + "AND [SizeNumber] = " + sizeNum;
          try {

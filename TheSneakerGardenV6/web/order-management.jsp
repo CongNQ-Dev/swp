@@ -154,7 +154,7 @@
                             %>
                             <tr>
                                 <td><%=order.getOrderId()%></td>
-                                <td><%=user.getUserName()%></td>
+                                <td><%=user.getUserFullName()%></td>
                                 <td><%=user.getUserAddress()%></td>
                                 <td><%=order.getOrderDate()%></td>
                                 <td><%=order.getShipDate()%></td>

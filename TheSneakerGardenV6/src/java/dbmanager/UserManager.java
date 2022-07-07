@@ -14,7 +14,7 @@ import utils.DBUtils;
 
 /**
  *
- * @author admin
+ * @author Admin
  */
 public class UserManager {
 

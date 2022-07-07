@@ -18,7 +18,7 @@ import utils.DBUtils;
 
 /**
  *
- * @author DINHTT
+ * @author Admin
  */
 public class OderManager {
     Connection con = null;
@@ -154,5 +154,4 @@ public class OderManager {
         }
         return list;
     }
-    
 }

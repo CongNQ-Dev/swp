@@ -7,7 +7,7 @@ package model;
 
 /**
  *
- * @author user
+ * @author Admin
  */
 public class Inventory {
     private int proID;

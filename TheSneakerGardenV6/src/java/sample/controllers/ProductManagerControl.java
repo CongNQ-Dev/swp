@@ -19,7 +19,7 @@ import model.User;
 
 /**
  *
- * @author admin
+ * @author Admin
  */
 @WebServlet(name = "ProductManagerControl", urlPatterns = {"/item-management"})
 public class ProductManagerControl extends HttpServlet {

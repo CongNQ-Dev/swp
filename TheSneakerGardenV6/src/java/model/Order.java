@@ -8,7 +8,7 @@ import java.sql.Date;
 
 /**
  *
- * @author DINHTT
+ * @author Admin
  */
 public class Order {
     int orderId;

@@ -19,7 +19,7 @@ import model.Product;
 
 /**
  *
- * @author DINHTT
+ * @author Admin
  */
 @WebServlet(name = "HistoryOrderControl", urlPatterns = {"/history"})
 public class HistoryOrderControl extends HttpServlet {

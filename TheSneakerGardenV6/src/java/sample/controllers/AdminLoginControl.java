@@ -21,7 +21,7 @@ import model.User;
 
 /**
  *
- * @author DINHTT
+ * @author Admin
  */
 @WebServlet(name = "AdminLoginControl", urlPatterns = {"/homeAdmin"})
 public class AdminLoginControl extends HttpServlet {

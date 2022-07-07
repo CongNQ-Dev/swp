@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author DINHTT
+ * @author Admin
  */
 @WebServlet(name = "cart", urlPatterns = {"/cart"})
 public class cart extends HttpServlet {

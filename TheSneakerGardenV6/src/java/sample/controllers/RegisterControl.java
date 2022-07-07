@@ -16,7 +16,7 @@ import dbmanager.UserManager;
 
 /**
  *
- * @author admin
+ * @author Admin
  */
 @WebServlet(name = "RegisterControl", urlPatterns = {"/register"})
 public class RegisterControl extends HttpServlet {
