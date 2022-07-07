@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-lg-3 col-2 logo">
             <a class="navbar-brand pb-4" href="./home">
-                <img src="./images/LogoTheSneakerGarden.png" alt=""width="100px" height="150"
+                <img src="img/logo1.png" alt=""width="100px" height="150"
                      class="d-inline-block align-text-top nav-icon">
             </a>
         </div>

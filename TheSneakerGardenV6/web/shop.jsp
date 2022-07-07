@@ -14,7 +14,7 @@
         <%@include file="components/head.jsp" %>
 
         <title>The Sneaker Garden</title>
-        <link href="./css/style.css" rel="stylesheet">
+       
         <link rel="stylesheet" href="./css/shop.css" />
         <link rel="stylesheet" href="./css/style.css">
 
@@ -147,7 +147,9 @@
                     </div>
                 </div>
             </div>
+        </div>      
         </div>
+
         <!-- End Content -->
 
         <!-- Start Brands -->
